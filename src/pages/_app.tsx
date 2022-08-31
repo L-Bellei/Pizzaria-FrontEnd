@@ -1,13 +1,16 @@
-import { AppProps } from "../../node_modules/next/app";
-import "../../styles/globals.scss";
-import { AuthProvider } from "../contexts/AuthContext";
+import { AppProps } from '../../node_modules/next/app';
+import '../../styles/globals.scss';
+import { AuthProvider } from '../contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
-  );
+	return (
+		<AuthProvider>
+			<Component {...pageProps} />
+			<ToastContainer autoClose={3000} />
+		</AuthProvider>
+	);
 }
 
 export default MyApp;
