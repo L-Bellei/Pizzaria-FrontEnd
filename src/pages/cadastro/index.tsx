@@ -8,6 +8,7 @@ import Link from '../../../node_modules/next/link';
 import React, { FormEvent, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthContext';
+import { canSSRGuest } from '../../utils/canSSRGuest';
 
 export default function Cadastro() {
 	const { signUp } = useContext(AuthContext);
@@ -76,3 +77,9 @@ export default function Cadastro() {
 		</>
 	);
 }
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+	return {
+		props: {},
+	};
+});
